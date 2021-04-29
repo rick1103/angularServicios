@@ -22,5 +22,15 @@ export class ArticulosService {
   {
     return this.http.get<User>(this.ruta + '/users/' + userId)
   }
+  
+  leerTodosLosUsuarios(): Observable<User[]>
+  {
+    return this.http.get<User[]>(this.ruta + '/users/')
+  }
+
+  guardarArticulo(articulo: Articulo): Observable<Articulo>
+  {
+    return this.http.post<Articulo>(this.ruta + '/posts', articulo);
+  }
 
 }
