@@ -39,8 +39,14 @@ export class HomeComponent implements OnInit {
   {
     this.articuloInyectado.borrarArticulo(id).subscribe((datos)=>{
       console.log(datos)
-      console.log('Eliminadi correctamente')
+      console.log('Eliminado correctamente')
     })
+  }
+
+  actualizar(articulo: Articulo)
+  {
+    this.articuloInyectado.articulo = articulo;
+    this.Ruta.navigateByUrl('agregar-articulo/false');
   }
 
 }
