@@ -16,25 +16,9 @@ export class HomeComponent implements OnInit {
   constructor(private usuarioInyectado: UsuarioService, private articuloInyectado: ArticulosService, private Ruta: Router) { }
   
   ngOnInit() {
-    this.articulos.push(
-    {
-      titulo: 'Curso de net core',
-      descripcion: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus quam reprehenderit ipsam exercitationem vitae possimus, ea alias accusamus quod omnis odio repellendus veritatis molestias optio debitis, nihil a nam nobis.',
-      fecha: new Date(),
-      usuario: `${this.usuarioInyectado.usuario.nombre} ${this.usuarioInyectado.usuario.apellido}`
-    },
-    {
-      titulo: 'Curso de angular',
-      descripcion: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus quam reprehenderit ipsam exercitationem vitae possimus, ea alias accusamus quod omnis odio repellendus veritatis molestias optio debitis, nihil a nam nobis.',
-      fecha: new Date('04/25/2020'),
-      usuario: `${this.usuarioInyectado.usuario.nombre} ${this.usuarioInyectado.usuario.apellido}`
-    },
-    {
-      titulo: 'Curso de React',
-      descripcion: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus quam reprehenderit ipsam exercitationem vitae possimus, ea alias accusamus quod omnis odio repellendus veritatis molestias optio debitis, nihil a nam nobis.',
-      fecha: new Date('04/2/2020'),
-      usuario: `${this.usuarioInyectado.usuario.nombre} ${this.usuarioInyectado.usuario.apellido}`
-    })
+    this.articuloInyectado.leerNoticias().subscribe((articulosDesdeApi)=>{
+      this.articulos = articulosDesdeApi;
+    });
   }
 
   irAlDetalle(articulo: Articulo)
