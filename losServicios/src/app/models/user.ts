@@ -5,4 +5,7 @@ export class User{
     name:string;
     email:string;
     address: Address;
+    constructor(){
+        this.address = new Address();
+    }
 }

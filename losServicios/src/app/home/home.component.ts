@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
     articuloEnviar.title = 'Ese es de prueba';
     articuloEnviar.userId = 4;
     this.articuloInyectado.guardarArticulo(articuloEnviar).subscribe((articuloCreado)=>{
-      debugger
       this.articulos.push(articuloCreado);
     })
   }
@@ -34,6 +33,14 @@ export class HomeComponent implements OnInit {
   {
     this.articuloInyectado.articulo = articulo;
     this.Ruta.navigateByUrl('/articulo-detalle');
+  }
+
+  borrar(id: number)
+  {
+    this.articuloInyectado.borrarArticulo(id).subscribe((datos)=>{
+      console.log(datos)
+      console.log('Eliminadi correctamente')
+    })
   }
 
 }
